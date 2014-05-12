@@ -25,6 +25,7 @@ def im2array(im):
 #   data: integer arrays
 #   target: arrays of 0-35(represents[0-9A-Z])
 #   clf.fit(data, target)
+
 # predicting:
 #   array = preprocess char image into arrays
 #   code = clf.predict(array)
