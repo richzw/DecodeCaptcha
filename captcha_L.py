@@ -37,6 +37,23 @@ def seperateLetters(im):
             letters.append((start, end))
         inletter = 0
     return letters
+    
+# correct the range of letters 
+def correctLetters(letters):
+    length = len(letters)
+    for idx, val in enumerate(letters):
+        if val[1] - val[0] <= 2:
+            if 0 < idx < length-1:
+                if val[0]-letters[idx-1][1] >= letters[idx+1][0] - val[1]:
+                    letters[idx+1][0] = val[1]
+                else:
+                    letters[idx-1][1] = val[0]
+            del letters[idx]
+    # hard code here for demo
+    letters[0][1] += 1
+    letters[0][0] -= 1
+    return letters
+    
 
 #  
 class VectorCompare:
@@ -90,9 +107,9 @@ def main():
     im = Image.open("captcha.gif")#("VerifyCode.jpg")
     im = clean(im)
     letters_locations = seperateLetters(im)
-    print letters_locations
-    letters_locations = [(6, 14), (15, 25), (27, 35), (37, 46), (48, 56), (57, 67)]
-    letters_locations = [letter for letter in letters_locations if letter[0] != letter[1]]
+    letters_locations = correctLetters(letters_locations)
+    #letters_locations = [(6, 14), (15, 25), (27, 35), (37, 46), (48, 56), (57, 67)]
+    #letters_locations = [letter for letter in letters_locations if letter[0] != letter[1]]
     print letters_locations
     matchLetter(letters_locations, im, buildVectorSpace())
 
