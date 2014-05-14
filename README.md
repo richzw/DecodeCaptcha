@@ -46,6 +46,7 @@ can be recognize by counting the number of black dots. After that, we get the co
 ### Extract Characters
 
 chop the characters from captcha through coordinates of character boundarys.
+    
     ```python
     Image.chop(coordianttopleft, coordinaterightbottom)
     ```
