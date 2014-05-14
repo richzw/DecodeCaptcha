@@ -10,7 +10,8 @@ Decode captcha by python.
 
 ### Introduction
 
-In this post, we will investigate the methods of decode captcha.
+In this post, we will investigate the methods of decode captcha. Currently, the texts in the captcha is not overrided 
+with each other, just for simplicity.
 
 Generally Speaking, there are several steps to do that:
 
@@ -33,4 +34,36 @@ Here the Image module is used in this post, and there are two ways to remove noi
     ```
 + extract characters according to color
     
-    extract characters from Image according to the color of them
+    extract characters from Image according to the color of them，
+    first of all, the color of text should be known previously. should be hard code here.
+
+#### Seperate Characters
+
+Base on the previous process, then the range of one character can be detected.
+Since there are only two colors (black and white) in the captcha after noise removing, the boundary of one character
+can be recognize by counting the number of black dots. After that, we get the coordinates of boundary. 
+
+### Extract Characters
+
+chop the characters from captcha through coordinates of character boundarys.
+    ```python
+    Image.chop(coordianttopleft, coordinaterightbottom)
+    ```
+
+### Classify Features, data training
+
+There are many ways to do data training.
+
++ Netual network
++ Vector Space module
+    
+    curretly, this method is implemented in this post.
+
++ svm machine learning
+
+
+### TODO:
+
+1. sklearn.svm to training data
+2. characters are overrided in captcha
+3. ...
