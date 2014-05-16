@@ -37,6 +37,9 @@ Here the Image module is used in this post, and there are two ways to remove noi
     extract characters from Image according to the color of them，
     first of all, the color of text should be known previously. should be hard code here.
 
+`Image filters` which blur the image horizontally and look for darker areas (because the blur causes the text to be highlighted). 
+`Edge detection` filters which just leave the outline of text, pattern detection, colour extraction
+
 #### Seperate Characters
 
 Base on the previous process, then the range of one character can be detected.
