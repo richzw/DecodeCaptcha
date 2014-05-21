@@ -21,7 +21,7 @@ Generally Speaking, there are several steps to do that:
 4. Classifying Features, data training
 5. Predicting charactoer
 
-##### Remove Noise
+#### Remove Noise
 
 Here the Image module is used in this post, and there are two ways to remove noise from captcha.
 
@@ -38,6 +38,7 @@ Here the Image module is used in this post, and there are two ways to remove noi
     first of all, the color of text should be known previously. should be hard code here.
 
 `Image filters` which blur the image horizontally and look for darker areas (because the blur causes the text to be highlighted). 
+
 `Edge detection` filters which just leave the outline of text, pattern detection, colour extraction
 
 #### Seperate Characters
@@ -46,17 +47,17 @@ Base on the previous process, then the range of one character can be detected.
 Since there are only two colors (black and white) in the captcha after noise removing, the boundary of one character
 can be recognize by counting the number of black dots. After that, we get the coordinates of boundary. 
 
-### Extract Characters
+#### Extract Characters
 
 chop the characters from captcha through coordinates of character boundarys.
     
-    ```python
-    Image.chop(coordianttopleft, coordinaterightbottom)
-    ```
+```python
+Image.chop(coordianttopleft, coordinaterightbottom)
+```
 
-### Classify Features, data training
+#### Classify Features, data training
 
-There are many ways to do data training.
+There are many algorithm to do data training.
 
 + Netual network
 + Vector Space module
@@ -68,6 +69,7 @@ There are many ways to do data training.
 
 ### TODO:
 
-1. sklearn.svm to training data
+1. Image filter and Edge detection
+2. sklearn.svm to training data
 2. characters are overrided in captcha
 3. ...
